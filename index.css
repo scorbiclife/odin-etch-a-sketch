@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main-container {
+  width: 320px;
+  height: 320px;
+
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.grid-cell {
+  width: 20px;
+  background-color: white;
+}
+
+.grid-cell--activated {
+  background-color: black;
+}
