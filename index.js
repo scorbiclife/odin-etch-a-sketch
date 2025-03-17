@@ -18,8 +18,12 @@ function promptAndUpdateGridSize() {
 // @ts-ignore
 const mainContainer = document.querySelector(".main-container");
 
-const MAIN_CONTAINER_WIDTH_PX = 320
-mainContainer.style.width = `${MAIN_CONTAINER_WIDTH_PX}px`
+const MAIN_CONTAINER_WIDTH_PX = 320;
+mainContainer.style.width = `${MAIN_CONTAINER_WIDTH_PX}px`;
+
+function activateGridCell(event) {
+  event.target.classList.add("grid-cell--activated");
+}
 
 let nHovers = 0;
 
