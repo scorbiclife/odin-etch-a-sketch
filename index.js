@@ -22,7 +22,10 @@ const MAIN_CONTAINER_WIDTH_PX = 320;
 mainContainer.style.width = `${MAIN_CONTAINER_WIDTH_PX}px`;
 
 function activateGridCell(event) {
+  incrementHoverCount();
   event.target.classList.add("grid-cell--activated");
+  event.target.style.backgroundColor = createRandomColorValue();
+  event.target.style.opacity = getOpacityValue();
 }
 
 let nHovers = 0;
@@ -53,13 +56,6 @@ function resetGrid(gridSize) {
     gridCell.style.width = `${MAIN_CONTAINER_WIDTH_PX / gridSize}px`;
     gridCell.addEventListener("mouseenter", activateGridCell);
     mainContainer.appendChild(gridCell);
-  }
-
-  function activateGridCell(event) {
-    incrementHoverCount();
-    event.target.classList.add("grid-cell--activated");
-    event.target.style.backgroundColor = createRandomColorValue();
-    event.target.style.opacity = getOpacityValue();
   }
 }
 
