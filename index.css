@@ -4,6 +4,19 @@
   box-sizing: border-box;
 }
 
+body {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+#grid-size-prompt {
+  min-width: 60px;
+  height: 30px;
+}
+
 .main-container {
   width: 320px;
   height: 320px;
@@ -15,6 +28,7 @@
 .grid-cell {
   width: 20px;
   background-color: white;
+  border: 0.5px solid gray;
 }
 
 .grid-cell--activated {

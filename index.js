@@ -18,8 +18,12 @@ function promptAndUpdateGridSize() {
 // @ts-ignore
 const mainContainer = document.querySelector(".main-container");
 
-const MAIN_CONTAINER_WIDTH_PX = 320
-mainContainer.style.width = `${MAIN_CONTAINER_WIDTH_PX}px`
+const MAIN_CONTAINER_WIDTH_PX = 320;
+mainContainer.style.width = `${MAIN_CONTAINER_WIDTH_PX}px`;
+
+function activateGridCell(event) {
+  event.target.classList.add("grid-cell--activated");
+}
 
 function resetGrid(gridSize) {
   mainContainer.replaceChildren();
@@ -29,10 +33,6 @@ function resetGrid(gridSize) {
     gridCell.style.width = `${MAIN_CONTAINER_WIDTH_PX / gridSize}px`;
     gridCell.addEventListener("mouseenter", activateGridCell);
     mainContainer.appendChild(gridCell);
-  }
-
-  function activateGridCell(event) {
-    event.target.classList.add("grid-cell--activated");
   }
 }
 
