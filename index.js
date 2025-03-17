@@ -25,7 +25,27 @@ function activateGridCell(event) {
   event.target.classList.add("grid-cell--activated");
 }
 
+let nHovers = 0;
+
+function resetHoverCount() {
+  nHovers = 0;
+}
+
+function incrementHoverCount() {
+  ++nHovers;
+}
+
+function getOpacityValue() {
+  return `${nHovers > 10 ? 1 : nHovers / 10}`
+}
+
+function createRandomColorValue() {
+  const randomHue = Math.floor(Math.random() * 360);
+  return `hsl(${randomHue}deg 100% 50%)`;
+}
+
 function resetGrid(gridSize) {
+  resetHoverCount();
   mainContainer.replaceChildren();
   for (let i = 0; i < gridSize * gridSize; ++i) {
     const gridCell = document.createElement("div");
@@ -33,6 +53,13 @@ function resetGrid(gridSize) {
     gridCell.style.width = `${MAIN_CONTAINER_WIDTH_PX / gridSize}px`;
     gridCell.addEventListener("mouseenter", activateGridCell);
     mainContainer.appendChild(gridCell);
+  }
+
+  function activateGridCell(event) {
+    incrementHoverCount();
+    event.target.classList.add("grid-cell--activated");
+    event.target.style.backgroundColor = createRandomColorValue();
+    event.target.style.opacity = getOpacityValue();
   }
 }
 
