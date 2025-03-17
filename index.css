@@ -15,6 +15,7 @@
 .grid-cell {
   width: 20px;
   background-color: white;
+  border: 0.5px solid gray;
 }
 
 .grid-cell--activated {
